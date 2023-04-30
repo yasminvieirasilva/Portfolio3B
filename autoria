@@ -1,0 +1,21 @@
+Create Table Personagens(
+  idPersonagem serial not null,
+  vilao VARCHAR (200) not null,
+  personagemPrincipal VARCHAR(200) not null,
+  personagemSecundario VARCHAR (200) not null,
+  PRIMARY key (idPersonagem));
+  
+  CREATE table Historia(
+    idHistoria serial not null,
+    lugar varchar (100) not null,
+   enredo varchar (100) not null,
+    climax varchar (100) not null,
+    desfecho varchar (100) not null,
+   relacaoPersonagens varchar (100) not null,
+      PRIMARY key (idHistoria));
+      
+      CREATE table Livro(
+       historia serial not null,
+       personagem serial not null,
+        FOREIGN Key (historia) REFERENCES Historia (idHistoria),
+         FOREIGN Key (personagem) REFERENCES personagens (idPersonagem ));
